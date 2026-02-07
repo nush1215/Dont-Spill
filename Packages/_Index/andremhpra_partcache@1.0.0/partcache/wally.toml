@@ -1,0 +1,8 @@
+[package]
+name = "andremhpra/partcache"
+version = "1.0.0"
+description = "A port of PartCache by Xan_TheDragon to Wally. Modified with proper OOP strict-typing."
+authors = ["Xan_TheDragon"]
+registry = "https://github.com/UpliftGames/wally-index"
+exclude = ["foreman.toml"]
+realm = "shared"

@@ -1,0 +1,8 @@
+[package]
+registry = "https://github.com/UpliftGames/wally-index"
+name = "artisticvampyre/spr"
+authors = ["Fraktality"]
+version = "2.1.1"
+realm = "shared"
+license = "MIT"
+

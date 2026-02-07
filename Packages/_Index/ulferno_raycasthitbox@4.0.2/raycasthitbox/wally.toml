@@ -1,0 +1,8 @@
+[package]
+name = "ulferno/raycasthitbox"
+description = "Port of raycastHitboxRbxl by Swordphin for use in Check it Containment on Wally"
+version = "4.0.2"
+license = "MIT"
+authors = []
+realm = "shared"
+registry = "https://github.com/upliftgames/wally-index"
