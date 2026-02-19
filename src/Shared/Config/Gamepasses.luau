@@ -17,7 +17,34 @@ export type Gamepass = {
 }
 
 local Gamepasses = {}
-Gamepasses.Data = {} :: { Gamepass }
+Gamepasses.Data = {
+	{
+		Id = "VIP",
+		Name = "VIP",
+		PassId = 1712890105,
+		Icon = "rbxassetid://104107424544130",
+	},
+
+	{
+		Id = "x2Bux",
+		Name = "2x Bux",
+		PassId = 1713198605,
+		Icon = "rbxassetid://83888560849226",
+	},
+
+	{
+		Id = "x2Win",
+		Name = "2x Win",
+		Icon = "rbxassetid://79018343196342",
+		PassId = 1712949233,
+	},
+	{
+		Id = "x2Streak",
+		Name = "2x Streak",
+		Icon = "rbxassetid://114775952673138",
+		PassId = 1712868049,
+	},
+} :: { Gamepass }
 
 table.freeze(Gamepasses.Data)
 

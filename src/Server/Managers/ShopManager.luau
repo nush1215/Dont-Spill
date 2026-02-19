@@ -329,24 +329,6 @@ function ShopManager:_verifyPurchaseOnes(player: Player)
 		end)
 end
 
--- Sets up the starter pack start time for a player
--- @param player The player to set up
-function ShopManager:_setupStarterPackTime(player: Player)
-	if not validatePlayer(player) then
-		return
-	end
-
-	PlayerDataManager:GetPlayerDataKey(player, "StarterPackStart")
-		:andThen(function(starterPackStart: number)
-			if starterPackStart == 0 then
-				PlayerDataManager:SetPlayerDataKey(player, "StarterPackStart", os.time())
-			end
-		end)
-		:catch(function(error)
-			warn(`Failed to setup starter pack time for {player.Name}: {error}`)
-		end)
-end
-
 -- Initializes the ShopManager
 -- Sets up dependencies, event connections, and verifies existing players
 function ShopManager:OnInit()
@@ -354,16 +336,27 @@ function ShopManager:OnInit()
 	NotificationManager = require(script.Parent.NotificationManager)
 	CurrencyManager = require(script.Parent.CurrencyManager)
 
+	-- Setup starter pack start
+	local function setupStarterPackStart(player: Player)
+		PlayerDataManager:GetPlayerDataKey(player, "StarterPackStart"):andThen(function(starterPackStart: number)
+			if starterPackStart > 0 then
+				return
+			end
+
+			PlayerDataManager:SetPlayerDataKey(player, "StarterPackStart", os.time() + 86400)
+		end)
+	end
+
 	Players.PlayerAdded:Connect(function(player: Player)
 		self:_verifyGamepasses(player)
 		self:_verifyPurchaseOnes(player)
-		self:_setupStarterPackTime(player)
+		setupStarterPackStart(player)
 	end)
 
 	for _, player in Players:GetPlayers() do
 		self:_verifyGamepasses(player)
 		self:_verifyPurchaseOnes(player)
-		self:_setupStarterPackTime(player)
+		setupStarterPackStart(player)
 	end
 
 	Players.PlayerRemoving:Connect(function(player: Player)

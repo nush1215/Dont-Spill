@@ -12,13 +12,9 @@ export type DailyReward = {
 }
 
 --
-local CurrencyManager
-local ChairSkinManager
 local PlayerDataManager
 
 if RunService:IsServer() then
-	CurrencyManager = require(ServerScriptService.Server.Managers.CurrencyManager)
-	ChairSkinManager = require(ServerScriptService.Server.Managers.ChairSkinManager)
 	PlayerDataManager = require(ServerScriptService.Server.Managers.PlayerDataManager)
 end
 
@@ -54,9 +50,6 @@ DailyRewards.Data = {
 			if RunService:IsClient() then
 				return
 			end
-
-			CurrencyManager:IncrementCurrency(player, 100)
-			logCurrencySource(player, 100, "Day 1")
 		end,
 	},
 
@@ -68,8 +61,6 @@ DailyRewards.Data = {
 			if RunService:IsClient() then
 				return
 			end
-
-			ChairSkinManager:GiveRandomRarityChair(player, "Rare")
 		end,
 	},
 
@@ -81,9 +72,6 @@ DailyRewards.Data = {
 			if RunService:IsClient() then
 				return
 			end
-
-			CurrencyManager:IncrementCurrency(player, 250)
-			logCurrencySource(player, 250, "Day 3")
 		end,
 	},
 
@@ -95,9 +83,6 @@ DailyRewards.Data = {
 			if RunService:IsClient() then
 				return
 			end
-
-			CurrencyManager:IncrementCurrency(player, 500)
-			logCurrencySource(player, 500, "Day 4")
 		end,
 	},
 
@@ -109,9 +94,6 @@ DailyRewards.Data = {
 			if RunService:IsClient() then
 				return
 			end
-
-			CurrencyManager:IncrementCurrency(player, 1000)
-			logCurrencySource(player, 1000, "Day 5")
 		end,
 	},
 
@@ -123,9 +105,6 @@ DailyRewards.Data = {
 			if RunService:IsClient() then
 				return
 			end
-
-			CurrencyManager:IncrementCurrency(player, 1500)
-			logCurrencySource(player, 1500, "Day 6")
 		end,
 	},
 
@@ -137,8 +116,6 @@ DailyRewards.Data = {
 			if RunService:IsClient() then
 				return
 			end
-
-			ChairSkinManager:GiveRandomRarityChair(player, "Limited")
 		end,
 	},
 }

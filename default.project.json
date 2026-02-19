@@ -1,5 +1,5 @@
 {
-  "name": "Project-Template",
+  "name": "Dont-Spill",
   "tree": {
     "$className": "DataModel",
 
@@ -15,7 +15,11 @@
 
     "ServerScriptService": {
       "Server": {
-        "$path": "src/Server"
+        "$path": "src/Server",
+
+        "Components": {
+          "$path": "src/Server/Components"
+        }
       },
 
       "ServerPackages": {
@@ -27,6 +31,10 @@
       "StarterPlayerScripts": {
         "Client": {
           "$path": "src/Client"
+        },
+
+        "Components": {
+          "$path": "src/Client/Components"
         }
       }
     }

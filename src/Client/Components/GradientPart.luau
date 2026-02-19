@@ -18,6 +18,10 @@ function GradientPart:Construct()
 	local gradient1: Color3 = part:GetAttribute("Gradient1")
 	local gradient2: Color3 = part:GetAttribute("Gradient2")
 
+	if not gradient1 or not gradient2 then
+		return
+	end
+
 	--
 	self._cleaner = Trove.new()
 	part.Color = gradient1
@@ -31,13 +35,12 @@ function GradientPart:Construct()
 			task.wait(4)
 		end
 	end))
-
-	--
-	self._cleaner = Trove.new()
 end
 
 function GradientPart:Stop()
-	self._cleaner:Destroy()
+	if self._cleaner then
+		self._cleaner:Destroy()
+	end
 end
 
 return GradientPart

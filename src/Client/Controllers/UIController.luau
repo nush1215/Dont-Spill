@@ -1,5 +1,6 @@
 -- Services
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local StarterGui = game:GetService("StarterGui")
 local Players = game:GetService("Players")
 
 -- Packages
@@ -234,14 +235,14 @@ function UIController:OnInit()
 	end)
 
 	-- Disable Reset Button
-	--[[task.spawn(function()
+	task.spawn(function()
 		repeat
 			local success = pcall(function()
 				StarterGui:SetCore("ResetButtonCallback", false)
 			end)
 			task.wait(1)
 		until success
-	end)]]
+	end)
 end
 
 function UIController:OnStart() end
